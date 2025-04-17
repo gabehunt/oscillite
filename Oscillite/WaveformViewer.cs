@@ -68,7 +68,7 @@ namespace Oscillite
         private ZoomRegion panStartZoom;
         private enum ToolMode { Zoom, Pan }
         private ToolMode currentTool = ToolMode.Zoom;
-
+        private Button modeToggleButton;
         public WaveformViewer()
         {
             InitializeComponent();
@@ -139,10 +139,10 @@ namespace Oscillite
             // Add to control
             leftPanel.Controls.Add(openButton);
 
-            var modeToggleButton = new Button
+            modeToggleButton = new Button
             {
                 Size = new System.Drawing.Size(120, 40),
-                Text = "\uE762 Pan Mode", // U+E762 is the hand icon in Segoe MDL2 Assets
+                Text = "\uE8A4 Zoom Mode", // U+E762 is the hand icon in Segoe MDL2 Assets
                 Font = new System.Drawing.Font("Segoe MDL2 Assets", 12),
                 TextAlign = System.Drawing.ContentAlignment.MiddleCenter,
                 FlatStyle = FlatStyle.Flat,
@@ -222,12 +222,48 @@ namespace Oscillite
 
             InitializeDevice();
             InitializeChannels();
+            SetDefaults();
 
             this.MouseDown += WaveformViewer_MouseDown;
             this.MouseMove += WaveformViewer_MouseMove;
             this.MouseUp += WaveformViewer_MouseUp;
             this.Resize += WaveformViewer_Resize;
         }
+
+        private void SetDefaults()
+        {
+            currentTool = ToolMode.Zoom;
+            modeToggleButton.Text = "\uE8A4 Zoom Mode"; // U+E8A4 is a magnifying glass icon
+            Cursor = Cursors.Cross;
+
+            currentZoom = new ZoomRegion();
+
+            foreach (var ch in channels)
+            {
+                ch.ZoomedVoltageMin = null;
+                ch.ZoomedVoltageMax = null;
+                ch.Offset = 0f;
+                ch.Scale = 1.0f;
+                ch.Visible = true;
+                ch.Rulers = new List<Ruler>
+        {
+            new Ruler { Voltage = 2.0f },
+            new Ruler { Voltage = 2.0f }
+        };
+            }
+
+            timeRulers = new List<TimeRuler>
+    {
+        new TimeRuler { Time = 0.3f },
+        new TimeRuler { Time = 0.7f }
+    };
+
+            phaseRuler1 = new TimeRuler { Time = 0.2f };
+            phaseRuler2 = new TimeRuler { Time = 0.8f };
+
+            showPhaseRulers = false;
+        }
+
 
         private RectangleF? drawingArea = null;
 
@@ -335,7 +371,8 @@ namespace Oscillite
 
                     for (int r = 0; r < rulers.Count; r++)
                     {
-                        float screenY = transform3.WorldToScreenY(rulers[r].Voltage) + channels[i].Offset;
+                        float screenY = transform3.WorldToScreenY(rulers[r].Voltage);
+                        screenY += channels[i].Offset;
                         float clampedY = Math.Max(DrawingArea.Top + 1, screenY);
 
                         var handleBox = new RectangleF(currentX + 6, clampedY - 10, 50, 20);
@@ -415,7 +452,7 @@ namespace Oscillite
                         {
                             draggingPhaseRuler = i;
                             phaseRulerDragStartX = e.X;
-                            phaseRulerStartTime = times[i];
+                            phaseRulerStartTime = transform.ScreenToWorldX(e.X);
                             Cursor = Cursors.SizeWE;
                             return;
                         }
@@ -495,8 +532,8 @@ namespace Oscillite
 
             float deltaY = e.Y - rulerDragStartY;
 
-            float newScreenY = rulerDragStartY + (e.Y - rulerDragStartY);
-            float newVoltage = transform.ScreenToWorldY(newScreenY);
+            float adjustedY = e.Y - channel.Offset;
+            float newVoltage = transform.ScreenToWorldY(adjustedY);
             ruler.Voltage = newVoltage;
 
             float screenY = transform.WorldToScreenY(newVoltage);
@@ -555,13 +592,20 @@ namespace Oscillite
             var timeWorld = new RectangleF(zoom.TimeStart, 0, zoom.TimeSpan, 1);
             var transform = new ViewportTransform(timeWorld, DrawingArea);
 
-            // Get world-space delta time based on screen X drag
-            float startTime = transform.ScreenToWorldX(phaseRulerDragStartX);
+            // Get current time under mouse
             float currentTime = transform.ScreenToWorldX(e.X);
-            float newTime = ClampTime(phaseRulerStartTime + (currentTime - startTime));
 
-            if (draggingPhaseRuler == 0) phaseRuler1.Time = newTime;
-            else phaseRuler2.Time = newTime;
+            // Get delta time in world units
+            float deltaTime = currentTime - phaseRulerStartTime;
+
+            // Add that to whichever ruler was selected
+            if (draggingPhaseRuler == 0)
+                phaseRuler1.Time = ClampTime(phaseRuler1.Time + deltaTime / DEFAULT_TIME_SPAN);
+            else
+                phaseRuler2.Time = ClampTime(phaseRuler2.Time + deltaTime / DEFAULT_TIME_SPAN);
+
+            // Update reference point for next move
+            phaseRulerStartTime = currentTime;
 
             Invalidate();
         }
@@ -628,8 +672,23 @@ namespace Oscillite
 
             if (isDraggingAxis)
             {
+                var channel = channels[draggedAxisIndex];
                 float deltaY = e.Y - dragStartY;
-                channels[draggedAxisIndex].Offset = dragStartOffset + deltaY;
+
+                var world = GetWorldBounds(channel);
+                var transform = new ViewportTransform(world, DrawingArea);
+
+                float voltsStart = transform.ScreenToWorldY(dragStartY);
+                float voltsNow = transform.ScreenToWorldY(e.Y);
+                float deltaVolts = voltsNow - voltsStart;
+
+                float baseRange = channel.EffectiveVoltsPerDivision * DIVISIONS_Y;
+                float pixelsPerVolt = DrawingArea.Height / baseRange;
+
+                // Flip the direction to match user expectation
+                float newOffset = dragStartOffset - (deltaVolts * pixelsPerVolt);
+
+                channel.Offset = newOffset;
                 Invalidate();
             }
             else if (isDragging)
@@ -651,7 +710,7 @@ namespace Oscillite
                     if (e.Location.X >= drawingArea.Left && e.Location.X <= drawingArea.Right &&
                         e.Location.Y >= drawingArea.Top && e.Location.Y <= drawingArea.Bottom)
                     {
-                        Cursor = Cursors.Cross;
+                        Cursor = (currentTool == ToolMode.Zoom) ? Cursors.Cross : Cursors.Hand;
                     }
                     else
                     {
@@ -886,6 +945,7 @@ namespace Oscillite
 
         public void ImportSnaponScopeFile(string filePath)
         {
+            SetDefaults();
             var scopedata = new Snapon.Scope.Data.ScopeData();
             var data = scopedata.ReadAllFramesData(filePath);
 
@@ -1408,13 +1468,13 @@ namespace Oscillite
                     var first = channel.Data[0];
                     bool isZoomed = channel.ZoomedVoltageMin.HasValue && channel.ZoomedVoltageMax.HasValue;
                     Vector2 screenFirst = transform.WorldToScreen(first);
-                    if (!isZoomed) screenFirst.Y += channel.Offset;
+                    screenFirst.Y += channel.Offset;
                     sink.BeginFigure(new RawVector2(screenFirst.X, screenFirst.Y), FigureBegin.Hollow);
 
                     for (int j = 1; j < channel.Data.Length; j++)
                     {
                         Vector2 screenPoint = transform.WorldToScreen(channel.Data[j]);
-                        if (!isZoomed) screenPoint.Y += channel.Offset;
+                        screenPoint.Y += channel.Offset;
                         sink.AddLine(new RawVector2(screenPoint.X, screenPoint.Y));
                     }
 
