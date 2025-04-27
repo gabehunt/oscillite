@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ScopeSettings>
+		<ScopeType>LS</ScopeType>
+		<SweepList>
+			<Sweep T="T" Sec="5E-05" N="50 µs" U="µs" G="1000000" />
+			<Sweep T="T" Sec="0.0001" N="100 µs" U="µs" G="1000000" />
+			<Sweep T="T" Sec="0.0002" N="200 µs" U="µs" G="1000000" />
+			<Sweep T="T" Sec="0.0005" N="500 µs" U="µs" G="1000000" />
+			<Sweep T="T" Sec="0.001" N="1 ms" U="ms" G="1000" />
+			<Sweep T="T" Sec="0.002" N="2 ms" U="ms" G="1000" />
+			<Sweep T="T" Sec="0.005" N="5 ms" U="ms" G="1000" />
+			<Sweep T="T" Sec="0.01" N="10 ms" U="ms" G="1000" />
+			<Sweep T="T" Sec="0.02" N="20 ms" U="ms" G="1000" />
+			<Sweep T="T" Sec="0.05" N="50 ms" U="ms" G="1000" />
+			<Sweep T="T" Sec="0.1" N="100 ms" U="ms" G="1000" />
+			<Sweep T="T" Sec="0.2" N="200 ms" U="ms" G="1000" />
+			<Sweep T="T" Sec="0.5" N="500 ms" U="ms" G="1000" />
+			<Sweep T="T" Sec="1" N="1 s" U="s" G="1" />
+			<Sweep T="T" Sec="2" N="2 s" U="s" G="1" />
+			<Sweep T="T" Sec="5" N="5 s" U="s" G="1" />
+			<Sweep T="T" Sec="10" N="10 s" U="s" G="1" />
+			<Sweep T="T" Sec="20" N="20 s" U="s" G="1" />
+		</SweepList>
+		<SelectedSweep T="T" Sec="0.01" N="10 ms" U="ms" G="1000" />
+		<TraceList>
+			<Trace C="false" CT="0001-01-01T00:00:00" FPDC="false" FIC="false">
+				<Id V="1" />
+				<E V="true" />
+				<I V="false" />
+				<C V="CDC" />
+				<PD V="Off" />
+				<F V="Off" />
+				<Pr T="V" N="Test Lead - Volts DC" G="1" O="0" HAS="false" IASS="false">
+					<TSL>
+						<TS N="100 mV" FSV="0.1" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="200 mV" FSV="0.2" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="500 mV" FSV="0.5" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="1 V" FSV="1" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="5 V" FSV="5" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="10 V" FSV="10" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="20 V" FSV="20" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="50 V" FSV="50" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="100 V" FSV="100" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="200 V" FSV="200" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="400 V" FSV="400" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="500 V" FSV="500" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="1000 V" FSV="1000" U="V" PG="1" PO="0" UG="1" PA="0" />
+					</TSL>
+					<SS N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+				</Pr>
+				<S N="20 V" FSV="20" U="V" PG="1" PO="0" UG="1" PA="0" />
+				<P V="4" />
+				<RS V="1" />
+				<TV1 V="0" />
+				<TV2 V="0" />
+				<TS V="D" />
+			</Trace>
+			<Trace C="false" CT="0001-01-01T00:00:00" FPDC="false" FIC="false">
+				<Id V="2" />
+				<E V="true" />
+				<I V="false" />
+				<C V="CDC" />
+				<PD V="Off" />
+				<F V="Off" />
+				<Pr T="V" N="Test Lead - Volts DC" G="1" O="0" HAS="false" IASS="false">
+					<TSL>
+						<TS N="100 mV" FSV="0.1" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="200 mV" FSV="0.2" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="500 mV" FSV="0.5" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="1 V" FSV="1" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="5 V" FSV="5" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="10 V" FSV="10" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="20 V" FSV="20" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="50 V" FSV="50" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="100 V" FSV="100" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="200 V" FSV="200" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="400 V" FSV="400" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="500 V" FSV="500" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="1000 V" FSV="1000" U="V" PG="1" PO="0" UG="1" PA="0" />
+					</TSL>
+					<SS N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+				</Pr>
+				<S N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+				<P V="0.8" />
+				<RS V="0.1" />
+				<TV1 V="0" />
+				<TV2 V="0" />
+				<TS V="D" />
+			</Trace>
+			<Trace C="false" CT="0001-01-01T00:00:00" FPDC="false" FIC="false">
+				<Id V="3" />
+				<E V="false" />
+				<I V="false" />
+				<C V="CDC" />
+				<PD V="Off" />
+				<F V="Off" />
+				<Pr T="V" N="Test Lead - Volts DC" G="1" O="0" HAS="false" IASS="false">
+					<TSL>
+						<TS N="100 mV" FSV="0.1" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="200 mV" FSV="0.2" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="500 mV" FSV="0.5" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="1 V" FSV="1" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="5 V" FSV="5" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="10 V" FSV="10" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="20 V" FSV="20" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="50 V" FSV="50" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="100 V" FSV="100" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="200 V" FSV="200" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="400 V" FSV="400" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="500 V" FSV="500" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="1000 V" FSV="1000" U="V" PG="1" PO="0" UG="1" PA="0" />
+					</TSL>
+					<SS N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+				</Pr>
+				<S N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+				<P V="1.2" />
+				<RS V="0.1" />
+				<TV1 V="0" />
+				<TV2 V="0" />
+				<TS V="D" />
+			</Trace>
+			<Trace C="false" CT="0001-01-01T00:00:00" FPDC="false" FIC="false">
+				<Id V="4" />
+				<E V="false" />
+				<I V="false" />
+				<C V="CDC" />
+				<PD V="Off" />
+				<F V="Off" />
+				<Pr T="V" N="Test Lead - Volts DC" G="1" O="0" HAS="false" IASS="false">
+					<TSL>
+						<TS N="100 mV" FSV="0.1" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="200 mV" FSV="0.2" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="500 mV" FSV="0.5" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+						<TS N="1 V" FSV="1" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="5 V" FSV="5" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="10 V" FSV="10" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="20 V" FSV="20" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="50 V" FSV="50" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="100 V" FSV="100" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="200 V" FSV="200" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="400 V" FSV="400" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="500 V" FSV="500" U="V" PG="1" PO="0" UG="1" PA="0" />
+						<TS N="1000 V" FSV="1000" U="V" PG="1" PO="0" UG="1" PA="0" />
+					</TSL>
+					<SS N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+				</Pr>
+				<S N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+				<P V="1.6" />
+				<RS V="0.1" />
+				<TV1 V="0" />
+				<TV2 V="0" />
+				<TS V="D" />
+			</Trace>
+		</TraceList>
+		<TraceProbeList>
+			<TraceProbe T="V" N="Test Lead - Volts DC" G="1" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="100 mV" FSV="0.1" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+					<TS N="200 mV" FSV="0.2" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+					<TS N="500 mV" FSV="0.5" U="mV" PG="1" PO="0" UG="1000" PA="-3" />
+					<TS N="1 V" FSV="1" U="V" PG="1" PO="0" UG="1" PA="0" />
+					<TS N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+					<TS N="5 V" FSV="5" U="V" PG="1" PO="0" UG="1" PA="0" />
+					<TS N="10 V" FSV="10" U="V" PG="1" PO="0" UG="1" PA="0" />
+					<TS N="20 V" FSV="20" U="V" PG="1" PO="0" UG="1" PA="0" />
+					<TS N="50 V" FSV="50" U="V" PG="1" PO="0" UG="1" PA="0" />
+					<TS N="100 V" FSV="100" U="V" PG="1" PO="0" UG="1" PA="0" />
+					<TS N="200 V" FSV="200" U="V" PG="1" PO="0" UG="1" PA="0" />
+					<TS N="400 V" FSV="400" U="V" PG="1" PO="0" UG="1" PA="0" />
+					<TS N="500 V" FSV="500" U="V" PG="1" PO="0" UG="1" PA="0" />
+					<TS N="1000 V" FSV="1000" U="V" PG="1" PO="0" UG="1" PA="0" />
+				</TSL>
+				<SS N="2 V" FSV="2" U="V" PG="1" PO="0" UG="1" PA="0" />
+			</TraceProbe>
+			<TraceProbe T="V100" N="Vacuum 100" G="50.900635" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="5 inHg" FSV="5" U="inHg" PG="50.900635" PO="0" UG="1" PA="-1" />
+					<TS N="10 inHg" FSV="10" U="inHg" PG="50.900635" PO="0" UG="1" PA="-1" />
+					<TS N="20 inHg" FSV="20" U="inHg" PG="50.900635" PO="0" UG="1" PA="-1" />
+					<TS N="30 inHg" FSV="30" U="inHg" PG="50.900635" PO="0" UG="1" PA="-1" />
+				</TSL>
+				<SS N="20 inHg" FSV="20" U="inHg" PG="50.900635" PO="0" UG="1" PA="-1" />
+			</TraceProbe>
+			<TraceProbe T="P100" N="Pressure 100" G="25" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="10 psi" FSV="10" U="psi" PG="25" PO="0" UG="1" PA="-1" />
+					<TS N="25 psi" FSV="25" U="psi" PG="25" PO="0" UG="1" PA="-1" />
+					<TS N="50 psi" FSV="50" U="psi" PG="25" PO="0" UG="1" PA="-1" />
+					<TS N="100 psi" FSV="100" U="psi" PG="25" PO="0" UG="1" PA="-1" />
+				</TSL>
+				<SS N="50 psi" FSV="50" U="psi" PG="25" PO="0" UG="1" PA="-1" />
+			</TraceProbe>
+			<TraceProbe T="P500" N="Pressure 500" G="125" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="50 psi" FSV="50" U="psi" PG="125" PO="0" UG="1" PA="-2" />
+					<TS N="100 psi" FSV="100" U="psi" PG="125" PO="0" UG="1" PA="-2" />
+					<TS N="250 psi" FSV="250" U="psi" PG="125" PO="0" UG="1" PA="-2" />
+					<TS N="500 psi" FSV="500" U="psi" PG="125" PO="0" UG="1" PA="-2" />
+				</TSL>
+				<SS N="250 psi" FSV="250" U="psi" PG="125" PO="0" UG="1" PA="-2" />
+			</TraceProbe>
+			<TraceProbe T="P5000" N="Pressure 5000" G="1250" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="500 psi" FSV="500" U="psi" PG="1250" PO="0" UG="1" PA="-3" />
+					<TS N="1000 psi" FSV="1000" U="psi" PG="1250" PO="0" UG="1" PA="-3" />
+					<TS N="2500 psi" FSV="2500" U="psi" PG="1250" PO="0" UG="1" PA="-3" />
+					<TS N="5000 psi" FSV="5000" U="psi" PG="1250" PO="0" UG="1" PA="-3" />
+				</TSL>
+				<SS N="2500 psi" FSV="2500" U="psi" PG="1250" PO="0" UG="1" PA="-3" />
+			</TraceProbe>
+			<TraceProbe T="LA20" N="Low Amps 20" G="10" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="500 mA" FSV="0.5" U="mA" PG="10" PO="0" UG="1000" PA="-4" />
+					<TS N="1 A" FSV="1" U="A" PG="10" PO="0" UG="1" PA="-1" />
+					<TS N="2 A" FSV="2" U="A" PG="10" PO="0" UG="1" PA="-1" />
+					<TS N="5 A" FSV="5" U="A" PG="10" PO="0" UG="1" PA="-1" />
+					<TS N="10 A" FSV="10" U="A" PG="10" PO="0" UG="1" PA="-1" />
+					<TS N="20 A" FSV="20" U="A" PG="10" PO="0" UG="1" PA="-1" />
+				</TSL>
+				<SS N="10 A" FSV="10" U="A" PG="10" PO="0" UG="1" PA="-1" />
+			</TraceProbe>
+			<TraceProbe T="LA40" N="Low Amps 40" G="100" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="10 A" FSV="10" U="A" PG="100" PO="0" UG="1" PA="-2" />
+					<TS N="20 A" FSV="20" U="A" PG="100" PO="0" UG="1" PA="-2" />
+					<TS N="40 A" FSV="40" U="A" PG="100" PO="0" UG="1" PA="-2" />
+					<TS N="60 A" FSV="60" U="A" PG="100" PO="0" UG="1" PA="-2" />
+				</TSL>
+				<SS N="20 A" FSV="20" U="A" PG="100" PO="0" UG="1" PA="-2" />
+			</TraceProbe>
+			<TraceProbe T="LA60" N="Low Amps 60" G="100" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="10 A" FSV="10" U="A" PG="100" PO="0" UG="1" PA="-2" />
+					<TS N="20 A" FSV="20" U="A" PG="100" PO="0" UG="1" PA="-2" />
+					<TS N="40 A" FSV="40" U="A" PG="100" PO="0" UG="1" PA="-2" />
+					<TS N="60 A" FSV="60" U="A" PG="100" PO="0" UG="1" PA="-2" />
+				</TSL>
+				<SS N="20 A" FSV="20" U="A" PG="100" PO="0" UG="1" PA="-2" />
+			</TraceProbe>
+			<TraceProbe T="I" N="Ignition" G="3593" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="2 kV" FSV="2000" U="kV" PG="3593" PO="0" UG="0.001" PA="0" />
+					<TS N="3 kV" FSV="3000" U="kV" PG="3593" PO="0" UG="0.001" PA="0" />
+					<TS N="5 kV" FSV="5000" U="kV" PG="3593" PO="0" UG="0.001" PA="0" />
+					<TS N="10 kV" FSV="10000" U="kV" PG="3593" PO="0" UG="0.001" PA="0" />
+					<TS N="15 kV" FSV="15000" U="kV" PG="3593" PO="0" UG="0.001" PA="0" />
+					<TS N="20 kV" FSV="20000" U="kV" PG="3593" PO="0" UG="0.001" PA="0" />
+					<TS N="30 kV" FSV="30000" U="kV" PG="3593" PO="0" UG="0.001" PA="0" />
+					<TS N="50 kV" FSV="50000" U="kV" PG="3593" PO="0" UG="0.001" PA="0" />
+				</TSL>
+				<SS N="20 kV" FSV="20000" U="kV" PG="3593" PO="0" UG="0.001" PA="0" />
+			</TraceProbe>
+			<TraceProbe T="EEDM506D_TEMP" N="EEDM506D Temperature" G="1000" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="100 °F" FSV="100" U="degF" PG="1000" PO="0" UG="1" PA="-3" />
+					<TS N="200 °F" FSV="200" U="degF" PG="1000" PO="0" UG="1" PA="-3" />
+					<TS N="500 °F" FSV="500" U="degF" PG="1000" PO="0" UG="1" PA="-3" />
+					<TS N="1000 °F" FSV="1000" U="degF" PG="1000" PO="0" UG="1" PA="-3" />
+					<TS N="2000 °F" FSV="2000" U="degF" PG="1000" PO="0" UG="1" PA="-3" />
+				</TSL>
+				<SS N="200 °F" FSV="200" U="degF" PG="1000" PO="0" UG="1" PA="-3" />
+			</TraceProbe>
+			<TraceProbe T="MT5030_V" N="MT5030 Vacuum" G="1000" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="5 inHg" FSV="5" U="inHg" PG="1000" PO="0" UG="1" PA="-3" />
+					<TS N="10 inHg" FSV="10" U="inHg" PG="1000" PO="0" UG="1" PA="-3" />
+					<TS N="20 inHg" FSV="20" U="inHg" PG="1000" PO="0" UG="1" PA="-3" />
+					<TS N="30 inHg" FSV="30" U="inHg" PG="1000" PO="0" UG="1" PA="-3" />
+				</TSL>
+				<SS N="20 inHg" FSV="20" U="inHg" PG="1000" PO="0" UG="1" PA="-3" />
+			</TraceProbe>
+			<TraceProbe T="MT5030_P" N="MT5030 Pressure" G="1000" O="0" HAS="false" IASS="false">
+				<TSL>
+					<TS N="50 psi" FSV="50" U="psi" PG="1000" PO="0" UG="1" PA="-3" />
+					<TS N="100 psi" FSV="100" U="psi" PG="1000" PO="0" UG="1" PA="-3" />
+					<TS N="250 psi" FSV="250" U="psi" PG="1000" PO="0" UG="1" PA="-3" />
+					<TS N="500 psi" FSV="500" U="psi" PG="1000" PO="0" UG="1" PA="-3" />
+				</TSL>
+				<SS N="250 psi" FSV="250" U="psi" PG="1000" PO="0" UG="1" PA="-3" />
+			</TraceProbe>
+		</TraceProbeList>
+		<TriggerList>
+			<Trigger>
+				<Source V="Trace 1" ST="T" N="None" C="Cylinder" />
+				<M V="Auto" />
+				<L V="12.230899830220714" />
+				<D V="0.004620390455531453" />
+				<Sl V="D" />
+				<C V="1" />
+			</Trigger>
+			<Trigger>
+				<Source V="Trace 2" ST="T" N="None" C="Cylinder" />
+				<M V="Auto" />
+				<L V="2" />
+				<D V="0.001" />
+				<Sl V="D" />
+				<C V="1" />
+			</Trigger>
+			<Trigger>
+				<Source V="Trace 3" ST="T" N="None" C="Cylinder" />
+				<M V="Auto" />
+				<L V="2" />
+				<D V="0.001" />
+				<Sl V="D" />
+				<C V="1" />
+			</Trigger>
+			<Trigger>
+				<Source V="Trace 4" ST="T" N="None" C="Cylinder" />
+				<M V="Auto" />
+				<L V="2" />
+				<D V="0.001" />
+				<Sl V="D" />
+				<C V="1" />
+			</Trigger>
+			<Trigger>
+				<Source V="Cylinder" ST="C" N="None" C="Cylinder" />
+				<M V="Auto" />
+				<L V="0" />
+				<D V="0.001" />
+				<Sl V="D" />
+				<C V="1" />
+			</Trigger>
+			<Trigger>
+				<Source V="None" ST="N" N="None" C="Cylinder" />
+				<M V="Normal" />
+				<L V="0" />
+				<D V="0" />
+				<Sl V="D" />
+				<C V="1" />
+			</Trigger>
+		</TriggerList>
+		<SelectedTrigger>
+			<Source V="Trace 1" ST="T" N="None" C="Cylinder" />
+			<M V="Auto" />
+			<L V="12.230899830220714" />
+			<D V="0.004620390455531453" />
+			<Sl V="D" />
+			<C V="1" />
+		</SelectedTrigger>
+		<CursorList>
+			<Cursor>
+				<Id V="1" />
+				<E V="true" />
+				<P V="0.0033333333333333335" />
+			</Cursor>
+			<Cursor>
+				<Id V="2" />
+				<E V="true" />
+				<P V="0.006666666666666667" />
+			</Cursor>
+		</CursorList>
+		<Ignition IT="WS" NOC="4" FO="1 2 3 4" NOT="C" P="+ - - +" RPMF="x2" ES="4" />
+		<PressureUnits>psi</PressureUnits>
+		<VacuumUnits>inHg</VacuumUnits>
+		<TemperatureUnits>degF</TemperatureUnits>
+		<ScopeHardwareType>M6</ScopeHardwareType>
+	</ScopeSettings>
+	<CurrentBufferPosition V="497121" />
+	<FrameSize V="500" />
+	<WaveformDataList>
+		<WaveformData HL="INF" LL="-INF" Prec="2">
+			<TId V="1" />
+			<PL>
+				<P>12.220917</P>
+				<P>0</P>
+				<P>-0.1134728</P>
+				<P>NaN</P>
+				<P>INF</P>
+			</PL>
+			<PPS V="500" />
+			<PWI V="0" />
+		</WaveformData>
+		<WaveformData HL="INF" LL="-INF" Prec="3">
+			<TId V="2" />
+			<PL>
+				<P>1.4252451</P>
+				<P>0</P>
+				<P>-0.42401963</P>
+				<P>NaN</P>
+				<P>INF</P>
+			</PL>
+			<PPS V="500" />
+			<PWI V="0" />
+		</WaveformData>
+	</WaveformDataList>
+</ConfigurationSettings>
