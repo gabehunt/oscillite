@@ -36,6 +36,7 @@ namespace Oscillite
         internal const int DIVISIONS_Y = 8;
         private const int DIVISIONS_X = 10;
         private const float DEFAULT_TIME_SPAN = 10.0f;
+        private const int ADDITIONAL_CHANNEL_OFFSET = 40;
         float? currentFileTimespan = null;
         private RectangleF? drawingArea;
 
@@ -46,13 +47,26 @@ namespace Oscillite
         private FlowLayoutPanel channelPanel = new FlowLayoutPanel();
         internal FlowLayoutPanel ChannelPanel => channelPanel;
 
-        private RawColor4[] defaultColors = new[]
-{
-                new RawColor4(0.8f, 0.8f, 0.0f, 1.0f),  // Yellow
-                new RawColor4(0.0f, 1.0f, 0.0f, 1.0f),  // Green
-                new RawColor4(0.12f, 0.56f, 1.0f, 1.0f),  // Blue
-                new RawColor4(1.0f, 0.0f, 0.0f, 1.0f)   // Red
-            };
+        private RawColor4[] defaultColorsVSM = new[]
+        {
+            new RawColor4(0.8f, 0.8f, 0.0f, 1.0f),  // Yellow
+            new RawColor4(0.0f, 1.0f, 0.0f, 1.0f),  // Green
+            new RawColor4(0.12f, 0.56f, 1.0f, 1.0f),  // Blue
+            new RawColor4(1.0f, 0.0f, 0.0f, 1.0f)   // Red
+        };
+
+        private RawColor4[] defaultColorsTDMS = new[]
+        {
+            new RawColor4(0.95686275f, 0.9137255f, 0.08235294f, 1.0f), // rgba(244,233,21,255)
+            new RawColor4(0.92941177f, 0.14117648f, 0.15686275f, 1.0f), // rgba(237,36,40,255)
+            new RawColor4(0.03529412f, 0.6509804f, 0.30980393f, 1.0f),  // rgba(9,166,79,255)
+            new RawColor4(0.1764706f, 0.67058825f, 0.88235295f, 1.0f),  // rgba(45,171,225,255)
+            new RawColor4(1.0f, 1.0f, 1.0f, 1.0f),                      // rgba(255,255,255,255)
+            new RawColor4(0.5529412f, 0.17254902f, 0.5372549f, 1.0f),   // rgba(141,44,137,255)
+            new RawColor4(0.854993f, 0.362389f, 0.029951f, 1.0f),
+            new RawColor4(0.54509807f, 0.39215687f, 0.23137255f, 1.0f), // rgba(139,100,59,255)
+            
+        };
 
         //Zoom / Pan State
         private WaveformToolController toolController;
@@ -89,6 +103,7 @@ namespace Oscillite
         internal bool IsDraggingTimeRuler => dragState.DraggingTimeRuler.HasValue;
         internal bool IsDraggingVoltageAxis => dragState.IsDraggingAxis;
         internal bool IsDraggingChannel => dragState.IsDraggingChannel;
+        private string fileExtension = "";
 
         public WaveformViewer()
         {
@@ -190,7 +205,7 @@ namespace Oscillite
         {
             using (var ofd = new OpenFileDialog())
             {
-                ofd.Filter = "Supported Files|*.vsm;*.vss;*.ocsv";
+                ofd.Filter = "Supported Files|*.ocsv;*.tdms;*.vsm;*.vss;";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     try
@@ -372,11 +387,11 @@ namespace Oscillite
             {
                 var channel = new WaveformChannel(i)
                 {
-                    Color = defaultColors[i],
+                    Color = GetChannelColor(i, "ocsv"),
                     VoltsPerDivision = 1.0f,
                     Visible = true,
                     Data = new Vector2[0],
-                    Brush = new SolidColorBrush(d2dRenderTarget, defaultColors[i]),
+                    Brush = new SolidColorBrush(d2dRenderTarget, defaultColorsVSM[i]),
                     Rulers = new List<VoltageRuler>
             {
                 new VoltageRuler { Voltage = 2.0f },
@@ -384,7 +399,7 @@ namespace Oscillite
             }
                 };
                 channels.Add(channel);
-                channels[i].Offset = i * 100;
+                channels[i].Offset = i * ADDITIONAL_CHANNEL_OFFSET;
 
                 var ctrl = CreateChannelControl(i); // 💡 This is what creates the +/- buttons
                 channelPanel.Controls.Add(ctrl);   // ✅ Make sure this is targeting the correct panel
@@ -401,12 +416,13 @@ namespace Oscillite
             showPhaseRulers = false;
             ResetZoom();
             toolController.ResetToZoomMode();
+            fileExtension = result.FileExtension;
 
             foreach (var data in result.Channels)
             {
                 var index = data.ChannelIndex;
-                var color = defaultColors[index % defaultColors.Length];
 
+                var color = GetChannelColor(index, fileExtension);
                 var ch = new WaveformChannel(index)
                 {
                     Data = DataUtilities.DecimateData(data.Data, CurrentFileTimespan),
@@ -434,6 +450,20 @@ namespace Oscillite
             }
             InvalidateDrawingArea();
             Invalidate();
+        }
+
+        private RawColor4 GetChannelColor(int index, string fileExtension)
+        {
+            switch (fileExtension)
+            {
+                case "vsm":
+                    return defaultColorsVSM[index % defaultColorsVSM.Length];
+
+                case "tdms":
+                case "ocsv":
+                default:
+                    return defaultColorsTDMS[index % defaultColorsTDMS.Length];
+            }
         }
 
         private void InitializeDevice()
