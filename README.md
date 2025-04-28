@@ -13,7 +13,9 @@ It offers an enhanced visualization experience over the stock viewer.  The goal 
 - Renders automotive scope waveforms using Direct2D
 - Drag-to-zoom and multi-trace support
 - Custom rulers, grid overlays, and waveform measurements
-- Loads Scope files (.ism, .vsm, etc.)
+- Supported Scope files
+	- TDMS
+	- VSM
 
 ---
 
@@ -67,6 +69,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - SharpDX for Direct2D rendering
+- TDMSReader for TDMS File Support
+- Clean Room Team for VSM Open Spec
 - Open-source .NET community
 
 ---

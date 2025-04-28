@@ -22,10 +22,72 @@ namespace Oscillite.Utilities
             {
                 return LoadVSM(filePath, defaultChannelCount);
             }
+            else if (filePath.EndsWith(".tdms", StringComparison.OrdinalIgnoreCase))
+            {
+                return LoadTDMS(filePath, 8);
+            }
             else
             {
                 return new WaveformFileResult();
             }
+        }
+
+        private static WaveformFileResult LoadTDMS(string filePath, int channelCount)
+        {
+            var file = new NationalInstruments.Tdms.File(filePath);
+            file.Open();
+
+            var channels = new List<WaveformChannelData>();
+            float totalDurationSeconds = 0;
+            foreach (var group in file.Groups)
+            {
+                int i = 0;
+                foreach (var channel in group.Value.Channels)
+                {
+                    var props = channel.Value.Properties;
+                    float wfIncrement = props.ContainsKey("wf_increment") ? Convert.ToSingle(props["wf_increment"]) : 0f;
+                    float wfSamples = props.ContainsKey("wf_samples") ? Convert.ToSingle(props["wf_samples"]) : 0f;
+
+                    foreach (var prop in channel.Value.Properties)
+                    {
+                        Console.WriteLine($"{group.Key}\t{channel.Value.Name}\t{prop.Key} = {prop.Value}");
+                    }
+                    //wf_increment
+                    //wf_samples
+
+                    var dataType = channel.Value.DataType;
+                    Console.WriteLine(dataType.ToString());
+                    var voltages = channel.Value.GetData<float>().ToList();
+
+                    if (voltages.Count < 2)
+                        throw new Exception("CSV must contain at least 2 voltage values.");
+
+                    totalDurationSeconds = (wfSamples * wfIncrement);
+                    int totalSamples = voltages.Count;
+                    float timeStep = totalDurationSeconds / (totalSamples - 1);
+
+                    var data = new Vector2[totalSamples];
+                    for (int j = 0; j < totalSamples; j++)
+                        data[j] = new Vector2(j * timeStep, voltages[j]);
+
+                    channels.Add(new WaveformChannelData
+                    {
+                        ChannelIndex = i,
+                        Visible = true,
+                        Data = data,
+                        FullScale = 2 * voltages.Max(v => Math.Abs(v))
+                    });
+
+                    i += 1;
+                }
+            }
+
+            return new WaveformFileResult
+            {
+                Channels = channels,
+                Duration = totalDurationSeconds,
+                FileExtension = "tdms"
+            };
         }
 
         private static WaveformFileResult LoadCsv(string filePath, int channelCount, float totalDurationSeconds)
@@ -61,7 +123,8 @@ namespace Oscillite.Utilities
             return new WaveformFileResult
             {
                 Channels = channels,
-                Duration = totalDurationSeconds
+                Duration = totalDurationSeconds,
+                FileExtension = "ocsv"
             };
         }
 
@@ -147,7 +210,8 @@ namespace Oscillite.Utilities
             return new WaveformFileResult
             {
                 Channels = channels.Values.ToList(),
-                Duration = (float)duration
+                Duration = (float)duration,
+                FileExtension = "vsm"
             };
         }
 
@@ -164,6 +228,7 @@ namespace Oscillite.Utilities
     {
         public List<WaveformChannelData> Channels { get; set; }
         public float Duration { get; set; }
+        public string FileExtension { get; set; }
     }
 
     public class WaveformChannelData
