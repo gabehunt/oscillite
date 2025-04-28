@@ -35,8 +35,20 @@ namespace Oscillite.CleanRoom.VSM
                 using (var gzipStream = new GZipStream(fs, CompressionMode.Decompress))
                 using (var decompressedReader = new StreamReader(gzipStream, Encoding.UTF8))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(ConfigurationSettings));
-                    return (ConfigurationSettings)serializer.Deserialize(decompressedReader);
+                    string xmlContent = decompressedReader.ReadToEnd();
+                    try
+                    {
+                        XmlSerializer serializer = new XmlSerializer(typeof(ConfigurationSettings));
+                        using (var stringReader = new StringReader(xmlContent))
+                        {
+                            return (ConfigurationSettings)serializer.Deserialize(stringReader);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"{ex}\r\n{xmlContent}");
+                        throw; // rethrow so you don't hide the error
+                    }
                 }
             }
         }

@@ -32,6 +32,11 @@ public class CursorSummaryOverlay
         this.viewer = viewer;
     }
 
+    public void SetDefaults()
+    {
+        Rows.Clear();
+    }
+
     public void SetCursorValues(string label, float? val1, float? val2, string unit, Color4 color)
     {
         var existing = Rows.FirstOrDefault(r => r.Label == label);
@@ -65,7 +70,7 @@ public class CursorSummaryOverlay
         var panelBounds = new RawRectangleF(Position.X, Position.Y, Position.X + width, Position.Y + height);
 
         // Background
-        using (var bgBrush = new SolidColorBrush(rt, new RawColor4(0, 0, 0, 0.6f)))
+        using (var bgBrush = new SolidColorBrush(rt, new RawColor4(0, 0, 0, 0.85f)))
         {
             rt.FillRectangle(panelBounds, bgBrush);
         }
