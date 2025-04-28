@@ -413,6 +413,7 @@ namespace Oscillite
             TimeRulers[1].Time = 1.0f;
             channels.Clear();
             channelPanel.Controls.Clear();
+            cursorPanel.SetDefaults();
             showPhaseRulers = false;
             ResetZoom();
             toolController.ResetToZoomMode();
@@ -436,8 +437,8 @@ namespace Oscillite
                     Unit = data.UnitString,
                     Rulers = new List<VoltageRuler>
                     {
-                        new VoltageRuler { Voltage = 2.0f },
-                        new VoltageRuler { Voltage = 2.0f }
+                        new VoltageRuler { Voltage = 2.0f, Active = data.Visible },
+                        new VoltageRuler { Voltage = 2.0f, Active = data.Visible }
                     },
                     ZoomedVoltageMin = null,
                     ZoomedVoltageMax = null
@@ -449,6 +450,7 @@ namespace Oscillite
                 channelPanel.Controls.Add(ctrl);
             }
             InvalidateDrawingArea();
+            UpdateCursorPanel();
             Invalidate();
         }
 

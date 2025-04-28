@@ -55,27 +55,44 @@ namespace Oscillite.Utilities
                     //wf_increment
                     //wf_samples
 
-                    var dataType = channel.Value.DataType;
-                    Console.WriteLine(dataType.ToString());
-                    var voltages = channel.Value.GetData<float>().ToList();
+                    Vector2[] data = null;
+                    List<float> voltages = null;
 
-                    if (voltages.Count < 2)
-                        throw new Exception("CSV must contain at least 2 voltage values.");
+                    if (channel.Value.HasData)
+                    {
+                        var dataType = channel.Value.DataType;
+                        Console.WriteLine(dataType.ToString());
+                        voltages = channel.Value.GetData<float>().ToList();
 
-                    totalDurationSeconds = (wfSamples * wfIncrement);
-                    int totalSamples = voltages.Count;
-                    float timeStep = totalDurationSeconds / (totalSamples - 1);
+                        if (voltages.Count < 2)
+                            throw new Exception("CSV must contain at least 2 voltage values.");
 
-                    var data = new Vector2[totalSamples];
-                    for (int j = 0; j < totalSamples; j++)
-                        data[j] = new Vector2(j * timeStep, voltages[j]);
+                        totalDurationSeconds = (wfSamples * wfIncrement);
+                        int totalSamples = voltages.Count;
+                        float timeStep = totalDurationSeconds / (totalSamples - 1);
+
+                        data = new Vector2[totalSamples];
+                        for (int j = 0; j < totalSamples; j++)
+                            data[j] = new Vector2(j * timeStep, voltages[j]);
+                    }
+                    else
+                    {
+                        data = new Vector2[0];
+                        totalDurationSeconds = 10;
+                        voltages = new List<float>() { 2f };
+                    }
+
+                    var absVoltages = voltages.Select(v => Math.Abs(v)).OrderBy(v => v).ToArray();
+                    var index = (int)(absVoltages.Length * 0.9990); // 99.99% point
+                    var reasonableMax = absVoltages[Math.Min(index, absVoltages.Length - 1)];
+                    var roundedMax = RoundUpToFixedVoltages(reasonableMax);
 
                     channels.Add(new WaveformChannelData
                     {
                         ChannelIndex = i,
-                        Visible = true,
+                        Visible = data.Length > 0,
                         Data = data,
-                        FullScale = 2 * voltages.Max(v => Math.Abs(v))
+                        FullScale = 2 * roundedMax
                     });
 
                     i += 1;
@@ -221,6 +238,20 @@ namespace Oscillite.Utilities
             if (float.IsNegativeInfinity(v)) return -maxAbs;
             if (float.IsPositiveInfinity(v)) return maxAbs;
             return Math.Max(-maxAbs, Math.Min(maxAbs, v * gain));
+        }
+
+        private static float RoundUpToFixedVoltages(float value)
+        {
+            float[] voltages = { 1f, 5f, 10f, 20f, 50f, 100f, 200f };
+
+            foreach (var v in voltages)
+            {
+                if (value <= v)
+                    return v;
+            }
+
+            // If value is somehow bigger than the largest voltage, you can handle it like this:
+            return voltages.Last(); // or throw, or add more ranges if needed
         }
     }
 

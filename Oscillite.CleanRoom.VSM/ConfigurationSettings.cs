@@ -157,7 +157,7 @@ namespace Oscillite.CleanRoom.VSM
         public string N { get; set; }
 
         [XmlAttribute(AttributeName = "FSV")]
-        public int FSV { get; set; }
+        public double FSV { get; set; }
 
         [XmlAttribute(AttributeName = "U")]
         public string Unit { get; set; }
@@ -212,7 +212,7 @@ namespace Oscillite.CleanRoom.VSM
         public string N { get; set; }
 
         [XmlAttribute(AttributeName = "FSV")]
-        public int FullScaleValue { get; set; }
+        public double FullScaleValue { get; set; }
 
         [XmlAttribute(AttributeName = "U")]
         public string U { get; set; }
