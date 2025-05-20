@@ -18,6 +18,10 @@ namespace Oscillite.Utilities
             {
                 return LoadCsv(filePath, defaultChannelCount, totalDurationSeconds);
             }
+            else if (filePath.EndsWith(".lsm", StringComparison.OrdinalIgnoreCase))
+            {
+                return LoadLSM(filePath, defaultChannelCount);
+            }
             else if (filePath.EndsWith(".vsm", StringComparison.OrdinalIgnoreCase))
             {
                 return LoadVSM(filePath, defaultChannelCount);
@@ -145,6 +149,64 @@ namespace Oscillite.Utilities
             };
         }
 
+        private static WaveformFileResult LoadLSM(string filePath, int channelCount)
+        {
+
+            CleanRoom.LSM.ConfigurationSettingsLoader configurationSettingsLoader = new CleanRoom.LSM.ConfigurationSettingsLoader();
+            configurationSettingsLoader.LoadFromFile(filePath);
+            var cfg = configurationSettingsLoader.ConfigurationSettings;
+            var data = cfg.ScopeSettings;
+            double secondsPerFrame = data.Sweep.Seconds;
+
+            var tracesById = data.TraceList
+                .ToDictionary(trace => trace.Id);
+
+            var waveformDataByTraceId = cfg.WaveformData
+                .GroupBy(wf => wf.TraceId)
+                .ToDictionary(group => group.Key, group => group.ToList());
+
+            var channels = Enumerable.Range(0, channelCount)
+                .Select(i => new WaveformChannelData { ChannelIndex = i, Visible = false })
+                .ToDictionary(c => c.ChannelIndex);
+
+            for (int index = 0; index < tracesById.Count; index++)
+            {
+                var trace = tracesById[index + 1];
+
+                if (index >= 0 && index < channelCount)
+                {
+                    channels[index].MaxExpectedVoltage = (float)trace.Scale.FullScaleValue;
+                    float fullScale = channels[index].MaxExpectedVoltage * 2.0f;
+                    channels[index].Visible = trace.Enabled;
+                    channels[index].FullScale = fullScale;
+                    channels[index].UnitString = trace.Probe.SelectedScale.Unit.ToString();
+                }
+            }
+
+            double? duration = null;
+            foreach (var kvp in waveformDataByTraceId)
+            {
+                int channelIindex = kvp.Key - 1;
+                var allPoints = kvp.Value.SelectMany(wf => wf.Points).ToArray();
+                int totalPoints = allPoints.Length;
+                if (!duration.HasValue && totalPoints > 0)
+                {
+                    duration = (totalPoints * data.Sweep.Seconds) / 1000;
+                }
+
+                var vectorPoints = allPoints.Select((v, i) =>
+                    new Vector2((float)(i * duration / (totalPoints - 1)), Sanitize((float)v, channels[channelIindex].MaxExpectedVoltage, (float)data.TraceList[channelIindex].Scale.ProbeGain))).ToArray();
+                channels[channelIindex].Data = vectorPoints;
+            }
+
+            return new WaveformFileResult
+            {
+                Channels = channels.Values.ToList(),
+                Duration = (float)duration,
+                FileExtension = "vsm"
+            };
+        }
+
         private static WaveformFileResult LoadVSM(string filePath, int channelCount)
         {
 
@@ -159,11 +221,6 @@ namespace Oscillite.Utilities
             var waveformDataByTraceId = scopedata.WaveformDataList.WaveformData
                 .GroupBy(wf => wf.TId.Value)
                 .ToDictionary(group => group.Key, group => group.ToList());
-
-            //int frameSize = scopedata.FrameSize?.V ?? 0;
-            //int bufferSize = scopedata.WaveformDataList.WaveformData.FirstOrDefault().BufferSize?.V ?? 0;
-            //int totalFrames = (int)((bufferSize - frameSize) / frameSize) + 1;
-            //float duration = (float)(totalFrames * secondsPerFrame);
 
             var channels = Enumerable.Range(0, channelCount)
                 .Select(i => new WaveformChannelData { ChannelIndex = i, Visible = false })
@@ -183,29 +240,6 @@ namespace Oscillite.Utilities
                 }
             }
 
-            //var waveformsByTrace = new Dictionary<int, List<Waveform>>();
-
-            //for (uint i = 0; i <= bufferSize - frameSize; i += frameSize)
-            //{
-            //    scopedata.BufferPosition = new BufferPosition(i);
-            //    var waveforms = scopedata.GetWaveforms(GetWaveformReadType.GetWaveformReadType_Default);
-            //    for (int wfi = 0; wfi < waveforms.Count; wfi++)
-            //    {
-            //        var wf = waveforms[wfi];
-            //        //int traceId = wf.TraceId?.Value ?? 0;
-            //        int channelIndex = wfi;
-            //        if (!channels.ContainsKey(channelIndex)) continue;
-
-            //        float maxExpected = channels[channelIndex].FullScale / 2;
-            //        for (int j = 0; j < wf.Points.Length; j++)
-            //            wf.Points[j] = Sanitize(wf.Points[j], maxExpected, data.Traces[wfi].Scale.ProbeGain);
-
-            //        if (!waveformsByTrace.ContainsKey(channelIndex))
-            //            waveformsByTrace[channelIndex] = new List<Waveform>();
-
-            //        waveformsByTrace[channelIndex].Add(wf);
-            //    }
-            //}
             double? duration = null;
             foreach (var kvp in waveformDataByTraceId)
             {
@@ -219,8 +253,6 @@ namespace Oscillite.Utilities
 
                 var vectorPoints = allPoints.Select((v, i) =>
                     new Vector2((float)(i * duration / (totalPoints - 1)), Sanitize((float)v, channels[channelIindex].MaxExpectedVoltage, (float)data.TraceList.Trace[channelIindex].Scale.ProbeGain))).ToArray();
-                //        for (int j = 0; j < wf.Points.Length; j++)
-                //            wf.Points[j] = Sanitize(wf.Points[j], maxExpected, data.Traces[wfi].Scale.ProbeGain);
                 channels[channelIindex].Data = vectorPoints;
             }
 
