@@ -205,7 +205,7 @@ namespace Oscillite
         {
             using (var ofd = new OpenFileDialog())
             {
-                ofd.Filter = "Supported Files|*.ocsv;*.tdms;*.vsm;*.vss;";
+                ofd.Filter = "Supported Files|*.ocsv;*.tdms;*.vsm;*.vss;*.lsm;";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     try

@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oscillite.CleanRoom.VSM", "Oscillite.CleanRoom.VSM\Oscillite.CleanRoom.VSM.csproj", "{FB3F807B-D600-446F-A558-767D9FB84B50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oscillite.CleanRoom.LSM", "Oscillite.CleanRoom.LSM\Oscillite.CleanRoom.LSM.csproj", "{4CEB71AB-709E-48F7-9F13-AD0FC40D3D9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{FB3F807B-D600-446F-A558-767D9FB84B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB3F807B-D600-446F-A558-767D9FB84B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB3F807B-D600-446F-A558-767D9FB84B50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CEB71AB-709E-48F7-9F13-AD0FC40D3D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CEB71AB-709E-48F7-9F13-AD0FC40D3D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CEB71AB-709E-48F7-9F13-AD0FC40D3D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CEB71AB-709E-48F7-9F13-AD0FC40D3D9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

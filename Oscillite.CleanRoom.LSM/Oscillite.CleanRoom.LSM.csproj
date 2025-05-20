@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4CEB71AB-709E-48F7-9F13-AD0FC40D3D9D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Oscillite.CleanRoom.LSM</RootNamespace>
+    <AssemblyName>Oscillite.CleanRoom.LSM</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\BinaryFileReadHelper.cs" />
+    <Compile Include="Classes\CapacitanceTraceScaleList.cs" />
+    <Compile Include="Classes\Constants.cs" />
+    <Compile Include="Classes\SourceType.cs" />
+    <Compile Include="Classes\TraceCount.cs" />
+    <Compile Include="Classes\TraceCouplingType.cs" />
+    <Compile Include="ConfigurationSettings.cs" />
+    <Compile Include="Classes\SweepLabels.cs" />
+    <Compile Include="Classes\Cursor.cs" />
+    <Compile Include="Classes\CursorList.cs" />
+    <Compile Include="Classes\DvomTraceProbeList.cs" />
+    <Compile Include="Classes\DiodeTraceScaleList.cs" />
+    <Compile Include="Classes\AmpScales.cs" />
+    <Compile Include="Classes\FileVersion.cs" />
+    <Compile Include="Classes\FileVersionMap.cs" />
+    <Compile Include="Classes\FilterState.cs" />
+    <Compile Include="Classes\ScopeModuleRequiredFieldNamesMap.cs" />
+    <Compile Include="Classes\MultimeterSettingsMap.cs" />
+    <Compile Include="Classes\ChannelSettingsMap.cs" />
+    <Compile Include="Classes\ScopeFileExtensionMap.cs" />
+    <Compile Include="Classes\SweepListMap.cs" />
+    <Compile Include="Classes\SweepType.cs" />
+    <Compile Include="Classes\SweepWidthHelper.cs" />
+    <Compile Include="Classes\TraceProbeFactory.cs" />
+    <Compile Include="Classes\TraceProbeType.cs" />
+    <Compile Include="Classes\TriggerSettingsMap.cs" />
+    <Compile Include="Classes\CursorSettingsMap.cs" />
+    <Compile Include="Classes\IgnitionSettingsMap.cs" />
+    <Compile Include="Classes\TraceSettingsMap.cs" />
+    <Compile Include="Classes\MainSettingsMap.cs" />
+    <Compile Include="Classes\Position.cs" />
+    <Compile Include="Classes\GraphingMeterTraceProbeList.cs" />
+    <Compile Include="Classes\HighAmps2000TraceScaleList.cs" />
+    <Compile Include="Classes\HighAmps200TraceScaleList.cs" />
+    <Compile Include="Classes\LabScopeTraceProbeList.cs" />
+    <Compile Include="Classes\LowAmps20TraceScaleList.cs" />
+    <Compile Include="Classes\LowAmps40TraceScaleList.cs" />
+    <Compile Include="Classes\LowAmps60TraceScaleList.cs" />
+    <Compile Include="ConfigurationSettingsLoader.cs" />
+    <Compile Include="Classes\WaveformDataHelper.cs" />
+    <Compile Include="Classes\OhmsTraceScaleList.cs" />
+    <Compile Include="Classes\Pressure100barTraceScaleList.cs" />
+    <Compile Include="Classes\Pressure100kgcm2TraceScaleList.cs" />
+    <Compile Include="Classes\Pressure100kPaTraceScaleList.cs" />
+    <Compile Include="Classes\Pressure100psiTraceScaleList.cs" />
+    <Compile Include="Classes\Pressure5000barTraceScaleList.cs" />
+    <Compile Include="Classes\Pressure5000kgcm2TraceScaleList.cs" />
+    <Compile Include="Classes\Pressure5000kPaTraceScaleList.cs" />
+    <Compile Include="Classes\Pressure5000psiTraceScaleList.cs" />
+    <Compile Include="Classes\Pressure500barTraceScaleList.cs" />
+    <Compile Include="Classes\Pressure500kgcm2TraceScaleList.cs" />
+    <Compile Include="Classes\Pressure500kPaTraceScaleList.cs" />
+    <Compile Include="Classes\Pressure500psiTraceScaleList.cs" />
+    <Compile Include="Classes\PressureUnits.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ScopeHardwareType.cs" />
+    <Compile Include="Classes\ScopeSettings.cs" />
+    <Compile Include="Classes\ScopeType.cs" />
+    <Compile Include="Classes\Sweep.cs" />
+    <Compile Include="Classes\SweepList.cs" />
+    <Compile Include="Classes\TemperatureCelsiusTraceScaleList.cs" />
+    <Compile Include="Classes\TemperatureFahrenheitTraceScaleList.cs" />
+    <Compile Include="Classes\TemperatureUnits.cs" />
+    <Compile Include="Classes\TestLeadDutyCycleTraceScaleList.cs" />
+    <Compile Include="Classes\TestLeadFrequencyTraceScaleList.cs" />
+    <Compile Include="Classes\TestLeadInjectorPulseWidthTraceScaleList.cs" />
+    <Compile Include="Classes\TestLeadMcDwell60TraceScaleList.cs" />
+    <Compile Include="Classes\TestLeadMcDwell90TraceScaleList.cs" />
+    <Compile Include="Classes\TestLeadPulseWidthTraceScaleList.cs" />
+    <Compile Include="Classes\TestLeadTraceScaleList.cs" />
+    <Compile Include="Classes\TestLeadVoltsACTraceScaleList.cs" />
+    <Compile Include="Classes\TestLeadVoltsDCTraceScaleList.cs" />
+    <Compile Include="Classes\ThresholdSlope.cs" />
+    <Compile Include="Classes\Trace.cs" />
+    <Compile Include="Classes\TraceList.cs" />
+    <Compile Include="Classes\PeakDetectStatus.cs" />
+    <Compile Include="Classes\TraceProbe.cs" />
+    <Compile Include="Classes\TraceProbeList.cs" />
+    <Compile Include="Classes\SweepTimeMap.cs" />
+    <Compile Include="Classes\TraceScale.cs" />
+    <Compile Include="Classes\TraceScaleList.cs" />
+    <Compile Include="Classes\TraceProbeTypeMap.cs" />
+    <Compile Include="Classes\TraceScaleMap.cs" />
+    <Compile Include="Classes\Trigger.cs" />
+    <Compile Include="Classes\TriggerList.cs" />
+    <Compile Include="Classes\TriggerModeType.cs" />
+    <Compile Include="Classes\SlopeType.cs" />
+    <Compile Include="Classes\TriggerSource.cs" />
+    <Compile Include="Classes\UnitsHelper.cs" />
+    <Compile Include="Classes\Vacuum100inHgTraceScaleList.cs" />
+    <Compile Include="Classes\Vacuum100kPaTraceScaleList.cs" />
+    <Compile Include="Classes\Vacuum100mmHgTraceScaleList.cs" />
+    <Compile Include="Classes\VacuumUnits.cs" />
+    <Compile Include="Classes\WaveformBuffer.cs" />
+    <Compile Include="Classes\WaveformBufferList.cs" />
+    <Compile Include="Classes\WaveformHeader.cs" />
+    <Compile Include="Classes\ThresholdSlopeType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

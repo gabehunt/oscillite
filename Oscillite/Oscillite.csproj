@@ -191,6 +191,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Oscillite.CleanRoom.LSM\Oscillite.CleanRoom.LSM.csproj">
+      <Project>{4ceb71ab-709e-48f7-9f13-ad0fc40d3d9d}</Project>
+      <Name>Oscillite.CleanRoom.LSM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Oscillite.CleanRoom.VSM\Oscillite.CleanRoom.VSM.csproj">
       <Project>{fb3f807b-d600-446f-a558-767d9fb84b50}</Project>
       <Name>Oscillite.CleanRoom.VSM</Name>
