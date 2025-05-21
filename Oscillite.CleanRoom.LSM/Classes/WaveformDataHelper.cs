@@ -81,7 +81,8 @@ namespace Oscillite.CleanRoom.LSM
                         {
                             if (channelData[channelIndex] != null)
                             {
-                                channelData[channelIndex][i] = binaryReader.ReadInt16();
+                                var myint = binaryReader.ReadInt16();
+                                channelData[channelIndex][i] = myint;
                             }
                             else
                             {
@@ -312,7 +313,8 @@ namespace Oscillite.CleanRoom.LSM
 
         private float GetDataValueFromRaw(short rawValue, WaveformHeader header)
         {
-            return ((rawValue - header.calibrationOffset) * header.calibrationMultiplier) / (float)header.calibrationDivisor;
+            var i = ((rawValue - header.calibrationOffset) * header.calibrationMultiplier) / (float)header.calibrationDivisor;
+            return i;
         }
 
         public void GetFrequenciesFromRawData(int index, short[] bufferPoints, WaveformBufferList bufferList, string fileExt)

@@ -1,0 +1,559 @@
+﻿[INFO] Scanning 50220000.LSM
+
+[DISCOVERY] First 4 bytes: 4D-44-4C-53 (MDLS)
+[HYPOTHESIS] Possible ASCII header: "MDLS"
+
+[HYPOTHESIS] No BOM found. May be ASCII or binary.
+
+[PREVIEW] First 64 bytes:
+0000: 4D 44 4C 53 19 FC FF FF 19 FC FF FF 19 FC FF FF   MDLS............
+0010: 19 FC FF FF 00 00 00 00 00 00 00 00 00 00 00 00   ................
+0020: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+0030: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+
+[START] Interrogating for known field-like patterns
+
+[FOUND] 270 field candidates
+
+[FIELD] ModuleInfo @ 0x0BCC => Value Hint: 524289
+
+[FIELD] m_DataPlatformType @ 0x0BF4 => Value Hint: 100
+
+[FIELD] m_TraceSelection @ 0x0C26 => Value Hint: 0
+
+[FIELD] m_TraceInfos[] @ 0x0C50 => Value Hint: 0
+
+[FIELD] m_Id @ 0x0C76 => Value Hint: 0
+
+[FIELD] m_Displayed @ 0x0C88 => Value Hint: 1
+
+[FIELD] m_InputType @ 0x0CA8 => Value Hint: 1
+
+[FIELD] m_Position @ 0x0CC8 => Value Hint: 2.00000000000
+
+[FIELD] m_Scale @ 0x0CFE => Value Hint: 127
+
+[FIELD] m_Inverted @ 0x0D1A => Value Hint: 0
+
+[FIELD] m_LabelDisplayed @ 0x0D38 => Value Hint: 0
+
+[FIELD] m_LabelText @ 0x0D62 => Value Hint:
+
+[FIELD] m_SettingsDisplayed @ 0x0D80 => Value Hint: 0
+
+[FIELD] m_PositionIncrement @ 0x0DB0 => Value Hint: 0.00000000000
+
+[FIELD] m_MinPosition @ 0x0DF8 => Value Hint: 0.00000000000
+
+[FIELD] m_MaxPosition @ 0x0E34 => Value Hint: 0.00000000000
+
+[FIELD] m_UnitsPerVolt @ 0x0E70 => Value Hint: 1.00000000000
+
+[FIELD] m_Precision @ 0x0EAE => Value Hint: 2
+
+[FIELD] m_UnitsText @ 0x0ECE => Value Hint: V
+
+[FIELD] m_bInvertedByChangeInProbeType @ 0x0EEE => Value Hint: 0
+
+[FIELD] m_AutoScale @ 0x0F34 => Value Hint: 0
+
+[FIELD] m_RasterSpacing @ 0x0F54 => Value Hint: 1.00000000000
+
+[FIELD] m_CylinderCount @ 0x0F94 => Value Hint: 0
+
+[FIELD] m_CylinderDisplayed @ 0x0FBC => Value Hint: 0
+
+[FIELD] m_TraceInfos[] @ 0x0FEC => Value Hint: 1
+
+[FIELD] m_Id @ 0x1012 => Value Hint: 1
+
+[FIELD] m_Displayed @ 0x1024 => Value Hint: 1
+
+[FIELD] m_InputType @ 0x1044 => Value Hint: 2
+
+[FIELD] m_Position @ 0x1064 => Value Hint: 10.00000000000
+
+[FIELD] m_Scale @ 0x109C => Value Hint: 127
+
+[FIELD] m_Inverted @ 0x10B8 => Value Hint: 0
+
+[FIELD] m_LabelDisplayed @ 0x10D6 => Value Hint: 0
+
+[FIELD] m_LabelText @ 0x1100 => Value Hint:
+
+[FIELD] m_SettingsDisplayed @ 0x111E => Value Hint: 0
+
+[FIELD] m_PositionIncrement @ 0x114E => Value Hint: 0.00000000000
+
+[FIELD] m_MinPosition @ 0x1196 => Value Hint: 0.00000000000
+
+[FIELD] m_MaxPosition @ 0x11D2 => Value Hint: 0.00000000000
+
+[FIELD] m_UnitsPerVolt @ 0x120E => Value Hint: 1.00000000000
+
+[FIELD] m_Precision @ 0x124C => Value Hint: 2
+
+[FIELD] m_UnitsText @ 0x126C => Value Hint: V
+
+[FIELD] m_bInvertedByChangeInProbeType @ 0x128C => Value Hint: 0
+
+[FIELD] m_AutoScale @ 0x12D2 => Value Hint: 0
+
+[FIELD] m_RasterSpacing @ 0x12F2 => Value Hint: 1.00000000000
+
+[FIELD] m_CylinderCount @ 0x1332 => Value Hint: 0
+
+[FIELD] m_CylinderDisplayed @ 0x135A => Value Hint: 0
+
+[FIELD] m_TraceInfos[] @ 0x138A => Value Hint: 2
+
+[FIELD] m_Id @ 0x13B0 => Value Hint: 2
+
+[FIELD] m_Displayed @ 0x13C2 => Value Hint: 0
+
+[FIELD] m_InputType @ 0x13E2 => Value Hint: 0
+
+[FIELD] m_Position @ 0x1402 => Value Hint: 2.00000000000
+
+[FIELD] m_Scale @ 0x1438 => Value Hint: 127
+
+[FIELD] m_Inverted @ 0x1454 => Value Hint: 0
+
+[FIELD] m_LabelDisplayed @ 0x1472 => Value Hint: 0
+
+[FIELD] m_LabelText @ 0x149C => Value Hint:
+
+[FIELD] m_SettingsDisplayed @ 0x14BA => Value Hint: 0
+
+[FIELD] m_PositionIncrement @ 0x14EA => Value Hint: 0.00000000000
+
+[FIELD] m_MinPosition @ 0x1532 => Value Hint: 0.00000000000
+
+[FIELD] m_MaxPosition @ 0x156E => Value Hint: 0.00000000000
+
+[FIELD] m_UnitsPerVolt @ 0x15AA => Value Hint: 1.00000000000
+
+[FIELD] m_Precision @ 0x15E8 => Value Hint: 0
+
+[FIELD] m_UnitsText @ 0x1608 => Value Hint: V
+
+[FIELD] m_bInvertedByChangeInProbeType @ 0x1628 => Value Hint: 0
+
+[FIELD] m_AutoScale @ 0x166E => Value Hint: 0
+
+[FIELD] m_RasterSpacing @ 0x168E => Value Hint: 1.00000000000
+
+[FIELD] m_CylinderCount @ 0x16CE => Value Hint: 0
+
+[FIELD] m_CylinderDisplayed @ 0x16F6 => Value Hint: 0
+
+[FIELD] m_TraceInfos[] @ 0x1726 => Value Hint: 3
+
+[FIELD] m_Id @ 0x174C => Value Hint: 3
+
+[FIELD] m_Displayed @ 0x175E => Value Hint: 0
+
+[FIELD] m_InputType @ 0x177E => Value Hint: 0
+
+[FIELD] m_Position @ 0x179E => Value Hint: 2.00000000000
+
+[FIELD] m_Scale @ 0x17D4 => Value Hint: 127
+
+[FIELD] m_Inverted @ 0x17F0 => Value Hint: 0
+
+[FIELD] m_LabelDisplayed @ 0x180E => Value Hint: 0
+
+[FIELD] m_LabelText @ 0x1838 => Value Hint:
+
+[FIELD] m_SettingsDisplayed @ 0x1856 => Value Hint: 0
+
+[FIELD] m_PositionIncrement @ 0x1886 => Value Hint: 0.00000000000
+
+[FIELD] m_MinPosition @ 0x18CE => Value Hint: 0.00000000000
+
+[FIELD] m_MaxPosition @ 0x190A => Value Hint: 0.00000000000
+
+[FIELD] m_UnitsPerVolt @ 0x1946 => Value Hint: 1.00000000000
+
+[FIELD] m_Precision @ 0x1984 => Value Hint: 0
+
+[FIELD] m_UnitsText @ 0x19A4 => Value Hint: V
+
+[FIELD] m_bInvertedByChangeInProbeType @ 0x19C4 => Value Hint: 0
+
+[FIELD] m_AutoScale @ 0x1A0A => Value Hint: 0
+
+[FIELD] m_RasterSpacing @ 0x1A2A => Value Hint: 1.00000000000
+
+[FIELD] m_CylinderCount @ 0x1A6A => Value Hint: 0
+
+[FIELD] m_CylinderDisplayed @ 0x1A92 => Value Hint: 0
+
+[FIELD] m_MultimeterProbeType @ 0x1AC2 => Value Hint: 0
+
+[FIELD] m_MultimeterCouplingType @ 0x1AF6 => Value Hint: 0
+
+[FIELD] m_MultimeterScale @ 0x1B30 => Value Hint: 0
+
+[FIELD] m_MultimeterEnabled @ 0x1B5C => Value Hint: 0
+
+[FIELD] m_MultimeterLeadResistance @ 0x1B8C => Value Hint: 0.00000000000
+
+[FIELD] m_ChannelInfos[] @ 0x1BE2 => Value Hint: 0
+
+[FIELD] m_ChannelId @ 0x1C0C => Value Hint: 0
+
+[FIELD] m_ChannelProbeType @ 0x1C2C => Value Hint: 7
+
+[FIELD] m_ChannelCouplingType @ 0x1C5A => Value Hint: 1
+
+[FIELD] m_ChannelScale @ 0x1C8E => Value Hint: 0
+
+[FIELD] m_ChannelEnabled @ 0x1CB4 => Value Hint: 0
+
+[FIELD] m_PeakDetectState @ 0x1CDE => Value Hint: 0
+
+[FIELD] m_ChannelFilter @ 0x1D0A => Value Hint: 0
+
+[FIELD] m_ThresholdValue @ 0x1D32 => Value Hint: 0.00000000000
+
+[FIELD] m_ThresholdSlope @ 0x1D74 => Value Hint: 0
+
+[FIELD] m_PulseScale @ 0x1D9E => Value Hint: 0
+
+[FIELD] m_bPeakDetectByChangeInProbeType @ 0x1DC0 => Value Hint: 0
+
+[FIELD] m_ChannelLeadResistance @ 0x1E0A => Value Hint: 0
+
+[FIELD] m_ChannelInfos[] @ 0x1E42 => Value Hint: 1
+
+[FIELD] m_ChannelId @ 0x1E6C => Value Hint: 0
+
+[FIELD] m_ChannelProbeType @ 0x1E8C => Value Hint: 7
+
+[FIELD] m_ChannelCouplingType @ 0x1EBA => Value Hint: 1
+
+[FIELD] m_ChannelScale @ 0x1EEE => Value Hint: 0
+
+[FIELD] m_ChannelEnabled @ 0x1F14 => Value Hint: 0
+
+[FIELD] m_PeakDetectState @ 0x1F3E => Value Hint: 0
+
+[FIELD] m_ChannelFilter @ 0x1F6A => Value Hint: 0
+
+[FIELD] m_ThresholdValue @ 0x1F92 => Value Hint: 0.00000000000
+
+[FIELD] m_ThresholdSlope @ 0x1FD4 => Value Hint: 0
+
+[FIELD] m_PulseScale @ 0x1FFE => Value Hint: 0
+
+[FIELD] m_bPeakDetectByChangeInProbeType @ 0x2020 => Value Hint: 0
+
+[FIELD] m_ChannelLeadResistance @ 0x206A => Value Hint: 0
+
+[FIELD] m_ChannelInfos[] @ 0x20A2 => Value Hint: 2
+
+[FIELD] m_ChannelId @ 0x20CC => Value Hint: 0
+
+[FIELD] m_ChannelProbeType @ 0x20EC => Value Hint: 7
+
+[FIELD] m_ChannelCouplingType @ 0x211A => Value Hint: 1
+
+[FIELD] m_ChannelScale @ 0x214E => Value Hint: 0
+
+[FIELD] m_ChannelEnabled @ 0x2174 => Value Hint: 0
+
+[FIELD] m_PeakDetectState @ 0x219E => Value Hint: 0
+
+[FIELD] m_ChannelFilter @ 0x21CA => Value Hint: 0
+
+[FIELD] m_ThresholdValue @ 0x21F2 => Value Hint: 0.00000000000
+
+[FIELD] m_ThresholdSlope @ 0x2234 => Value Hint: 0
+
+[FIELD] m_PulseScale @ 0x225E => Value Hint: 0
+
+[FIELD] m_bPeakDetectByChangeInProbeType @ 0x2280 => Value Hint: 0
+
+[FIELD] m_ChannelLeadResistance @ 0x22CA => Value Hint: 0
+
+[FIELD] m_ChannelInfos[] @ 0x2302 => Value Hint: 3
+
+[FIELD] m_ChannelId @ 0x232C => Value Hint: 0
+
+[FIELD] m_ChannelProbeType @ 0x234C => Value Hint: 7
+
+[FIELD] m_ChannelCouplingType @ 0x237A => Value Hint: 1
+
+[FIELD] m_ChannelScale @ 0x23AE => Value Hint: 0
+
+[FIELD] m_ChannelEnabled @ 0x23D4 => Value Hint: 0
+
+[FIELD] m_PeakDetectState @ 0x23FE => Value Hint: 0
+
+[FIELD] m_ChannelFilter @ 0x242A => Value Hint: 0
+
+[FIELD] m_ThresholdValue @ 0x2452 => Value Hint: 0.00000000000
+
+[FIELD] m_ThresholdSlope @ 0x2494 => Value Hint: 0
+
+[FIELD] m_PulseScale @ 0x24BE => Value Hint: 0
+
+[FIELD] m_bPeakDetectByChangeInProbeType @ 0x24E0 => Value Hint: 0
+
+[FIELD] m_ChannelLeadResistance @ 0x252A => Value Hint: 0
+
+[FIELD] m_SweepRate @ 0x2562 => Value Hint: 9
+
+[FIELD] m_TriggerSelection @ 0x2582 => Value Hint: 0
+
+[FIELD] m_TriggerInfos[] @ 0x25B0 => Value Hint: 0
+
+[FIELD] m_TriggerSource @ 0x25DA => Value Hint: 0
+
+[FIELD] m_TriggerMode @ 0x2602 => Value Hint: 0
+
+[FIELD] m_TriggerDelay @ 0x2626 => Value Hint: 0.00100000005
+
+[FIELD] m_TriggerLevel @ 0x2664 => Value Hint: 2.00000000000
+
+[FIELD] m_TriggerSlope @ 0x26A2 => Value Hint: 0
+
+[FIELD] m_TriggerDisplayed @ 0x26C8 => Value Hint: 0
+
+[FIELD] m_TriggerDelayIncrement @ 0x26F6 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerLevelIncrement @ 0x2746 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinDelay @ 0x2796 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxDelay @ 0x27DA => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinLevel @ 0x281E => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxLevel @ 0x2862 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerActiveColor @ 0x28A6 => Value Hint: 0
+
+[FIELD] m_TriggerCylinder @ 0x28D8 => Value Hint: 1
+
+[FIELD] m_TriggerInfos[] @ 0x2904 => Value Hint: 1
+
+[FIELD] m_TriggerSource @ 0x292E => Value Hint: 1
+
+[FIELD] m_TriggerMode @ 0x2956 => Value Hint: 0
+
+[FIELD] m_TriggerDelay @ 0x297A => Value Hint: 0.00100000005
+
+[FIELD] m_TriggerLevel @ 0x29B8 => Value Hint: 2.00000000000
+
+[FIELD] m_TriggerSlope @ 0x29F6 => Value Hint: 0
+
+[FIELD] m_TriggerDisplayed @ 0x2A1C => Value Hint: 0
+
+[FIELD] m_TriggerDelayIncrement @ 0x2A4A => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerLevelIncrement @ 0x2A9A => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinDelay @ 0x2AEA => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxDelay @ 0x2B2E => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinLevel @ 0x2B72 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxLevel @ 0x2BB6 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerActiveColor @ 0x2BFA => Value Hint: 0
+
+[FIELD] m_TriggerCylinder @ 0x2C2C => Value Hint: 1
+
+[FIELD] m_TriggerInfos[] @ 0x2C58 => Value Hint: 2
+
+[FIELD] m_TriggerSource @ 0x2C82 => Value Hint: 2
+
+[FIELD] m_TriggerMode @ 0x2CAA => Value Hint: 0
+
+[FIELD] m_TriggerDelay @ 0x2CCE => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerLevel @ 0x2D0C => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerSlope @ 0x2D4A => Value Hint: 1
+
+[FIELD] m_TriggerDisplayed @ 0x2D70 => Value Hint: 0
+
+[FIELD] m_TriggerDelayIncrement @ 0x2D9E => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerLevelIncrement @ 0x2DEE => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinDelay @ 0x2E3E => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxDelay @ 0x2E82 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinLevel @ 0x2EC6 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxLevel @ 0x2F0A => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerActiveColor @ 0x2F4E => Value Hint: 0
+
+[FIELD] m_TriggerCylinder @ 0x2F80 => Value Hint: 1
+
+[FIELD] m_TriggerInfos[] @ 0x2FAC => Value Hint: 3
+
+[FIELD] m_TriggerSource @ 0x2FD6 => Value Hint: 3
+
+[FIELD] m_TriggerMode @ 0x2FFE => Value Hint: 0
+
+[FIELD] m_TriggerDelay @ 0x3022 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerLevel @ 0x3060 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerSlope @ 0x309E => Value Hint: 1
+
+[FIELD] m_TriggerDisplayed @ 0x30C4 => Value Hint: 0
+
+[FIELD] m_TriggerDelayIncrement @ 0x30F2 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerLevelIncrement @ 0x3142 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinDelay @ 0x3192 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxDelay @ 0x31D6 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinLevel @ 0x321A => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxLevel @ 0x325E => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerActiveColor @ 0x32A2 => Value Hint: 0
+
+[FIELD] m_TriggerCylinder @ 0x32D4 => Value Hint: 1
+
+[FIELD] m_TriggerInfos[] @ 0x3300 => Value Hint: 4
+
+[FIELD] m_TriggerSource @ 0x332A => Value Hint: 4
+
+[FIELD] m_TriggerMode @ 0x3352 => Value Hint: 0
+
+[FIELD] m_TriggerDelay @ 0x3376 => Value Hint: 0.00100000005
+
+[FIELD] m_TriggerLevel @ 0x33B4 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerSlope @ 0x33F2 => Value Hint: 0
+
+[FIELD] m_TriggerDisplayed @ 0x3418 => Value Hint: 0
+
+[FIELD] m_TriggerDelayIncrement @ 0x3446 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerLevelIncrement @ 0x3496 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinDelay @ 0x34E6 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxDelay @ 0x352A => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinLevel @ 0x356E => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxLevel @ 0x35B2 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerActiveColor @ 0x35F6 => Value Hint: 0
+
+[FIELD] m_TriggerCylinder @ 0x3628 => Value Hint: 1
+
+[FIELD] m_TriggerInfos[] @ 0x3654 => Value Hint: 5
+
+[FIELD] m_TriggerSource @ 0x367E => Value Hint: 5
+
+[FIELD] m_TriggerMode @ 0x36A6 => Value Hint: 1
+
+[FIELD] m_TriggerDelay @ 0x36CA => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerLevel @ 0x3708 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerSlope @ 0x3746 => Value Hint: 0
+
+[FIELD] m_TriggerDisplayed @ 0x376C => Value Hint: 0
+
+[FIELD] m_TriggerDelayIncrement @ 0x379A => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerLevelIncrement @ 0x37EA => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinDelay @ 0x383A => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxDelay @ 0x387E => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMinLevel @ 0x38C2 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerMaxLevel @ 0x3906 => Value Hint: 0.00000000000
+
+[FIELD] m_TriggerActiveColor @ 0x394A => Value Hint: 0
+
+[FIELD] m_TriggerCylinder @ 0x397C => Value Hint: 1
+
+[FIELD] m_CursorSelection @ 0x39A8 => Value Hint: 0
+
+[FIELD] m_CursorInfos[] @ 0x39D4 => Value Hint: 0
+
+[FIELD] m_CursorId @ 0x39FC => Value Hint: 0
+
+[FIELD] m_CursorPosition @ 0x3A1A => Value Hint: 0.00333333341
+
+[FIELD] m_CursorDisplayed @ 0x3A5C => Value Hint: 0
+
+[FIELD] m_CursorSelected @ 0x3A88 => Value Hint: 0
+
+[FIELD] m_CursorPositionIncrement @ 0x3AB2 => Value Hint: 0.00000000000
+
+[FIELD] m_CursorMinPosition @ 0x3B06 => Value Hint: 0.00000000000
+
+[FIELD] m_CursorMaxPosition @ 0x3B4E => Value Hint: 0.00000000000
+
+[FIELD] m_CursorActiveColor @ 0x3B96 => Value Hint: 0
+
+[FIELD] m_CursorInfos[] @ 0x3BC6 => Value Hint: 1
+
+[FIELD] m_CursorId @ 0x3BEE => Value Hint: 1
+
+[FIELD] m_CursorPosition @ 0x3C0C => Value Hint: 0.00666666683
+
+[FIELD] m_CursorDisplayed @ 0x3C4E => Value Hint: 0
+
+[FIELD] m_CursorSelected @ 0x3C7A => Value Hint: 0
+
+[FIELD] m_CursorPositionIncrement @ 0x3CA4 => Value Hint: 0.00000000000
+
+[FIELD] m_CursorMinPosition @ 0x3CF8 => Value Hint: 0.00000000000
+
+[FIELD] m_CursorMaxPosition @ 0x3D40 => Value Hint: 0.00000000000
+
+[FIELD] m_CursorActiveColor @ 0x3D88 => Value Hint: 0
+
+[FIELD] m_ViewType @ 0x3DB8 => Value Hint: 0
+
+[FIELD] m_bGridOn @ 0x3DD6 => Value Hint: 0
+
+[FIELD] m_TriggerTextDisplay @ 0x3DF2 => Value Hint: 0
+
+[FIELD] m_ScaleLabelsDisplay @ 0x3E24 => Value Hint: 0
+
+[FIELD] m_ScaleDisplayMode @ 0x3E56 => Value Hint: 0
+
+[FIELD] m_BufferPointIndex @ 0x3E84 => Value Hint: 524288
+
+[FIELD] m_BufferPointCount @ 0x3EBC => Value Hint: 1048576
+
+[FIELD] m_FrozenBufferPointIndex @ 0x3EF6 => Value Hint: 0
+
+[FIELD] m_SweepWidth @ 0x3F30 => Value Hint: 500
+
+[FIELD] m_IgnitionType @ 0x3F56 => Value Hint: 1
+
+[FIELD] m_FiringOrder @ 0x3F7C => Value Hint: 9
+
+[FIELD] m_NumberOfCylinders @ 0x3FA0 => Value Hint: 6
+
+[FIELD] m_CylinderPolarities @ 0x3FD0 => Value Hint: 7
+
+[FIELD] m_EngineStroke @ 0x4002 => Value Hint: 1
+
+[FIELD] ??
+???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????? @ 0x4028 => Value Hint:
+
+[END] Field scan complete.
